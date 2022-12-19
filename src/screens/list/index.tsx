@@ -1,6 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ContactsList} from './components';
+import {type Contact} from 'react-native-contacts';
 
-export default function List() {
-  return <View style={{flex: 1}} />;
+export default function List({contacts}: {contacts: Array<Contact>}) {
+  return <ContactsList contacts={contacts} />;
 }
