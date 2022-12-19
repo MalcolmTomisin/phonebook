@@ -9,22 +9,26 @@
  */
 
 import React from 'react';
-import {SafeAreaView, useColorScheme} from 'react-native';
+import {useColorScheme} from 'react-native';
 import {PhoneBookNavigator} from 'navigators';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Provider as PaperProvider} from 'react-native-paper';
+import {NavigationContainer} from '@react-navigation/native';
+import {CombinedDefaultTheme, CombinedDarkTheme} from 'config';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const theme = isDarkMode ? CombinedDarkTheme : CombinedDefaultTheme;
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <PhoneBookNavigator />
-    </SafeAreaView>
+    <PaperProvider theme={theme}>
+      <SafeAreaProvider>
+        <NavigationContainer theme={theme}>
+          <PhoneBookNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </PaperProvider>
   );
 };
 
