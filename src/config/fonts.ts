@@ -1,0 +1,7 @@
+const fonts = {
+  REGULAR: 'SFPRODISPLAYREGULAR',
+  MEDIUM: 'SFPRODISPLAYMEDIUM',
+  BOLD: 'SFPRODISPLAYBOLD',
+};
+
+export default fonts;
