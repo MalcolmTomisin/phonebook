@@ -1,7 +1,9 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type PhoneBookParams = {
-  detail: undefined;
+  detail: {
+    index: number;
+  };
   list: undefined;
 };
 
