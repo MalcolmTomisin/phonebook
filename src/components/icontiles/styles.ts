@@ -5,7 +5,7 @@ import {scale} from 'utils';
 export default (darkTheme?: boolean) =>
   StyleSheet.create({
     tile: {
-      backgroundColor: darkTheme ? colors.lightgrey : colors.grey,
+      backgroundColor: darkTheme ? colors.black : colors.white,
       padding: scale(12),
       borderRadius: scale(10),
       justifyContent: 'space-evenly',

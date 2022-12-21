@@ -6,7 +6,9 @@ import {Contact} from 'react-native-contacts';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 export default function ListContainer() {
-  const [contacts, setContacts] = React.useState<Array<Contact>>([]);
+  const [contacts, setContacts] = React.useState<
+    Array<Contact & {favorite: boolean}>
+  >([]);
 
   const _getContacts = () => {
     ContactAdapter.fetchOrderedContacts()

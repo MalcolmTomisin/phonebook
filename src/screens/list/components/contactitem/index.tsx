@@ -9,7 +9,13 @@ import type {PhoneBookParams} from 'navigators/phonebook/types';
 import {useNavigation} from '@react-navigation/native';
 import {navigationRoutes} from 'config';
 
-const ContactItem = ({item, index}: {item: Contact; index: number}) => {
+const ContactItem = ({
+  item,
+  index,
+}: {
+  item: Contact & {favorite: boolean};
+  index: number;
+}) => {
   const styles = useStyle(useColorScheme() === 'dark');
   const navigation =
     useNavigation<NativeStackNavigationProp<PhoneBookParams, 'list'>>();

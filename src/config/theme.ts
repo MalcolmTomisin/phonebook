@@ -19,28 +19,6 @@ const theme = {
     primaryInactive: '#E88C51',
     background: '#FFFFFF',
   },
-  fonts: {
-    regular: {
-      fontFamily: 'Montserrat-Regular',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'Montserrat-Medium',
-      fontWeight: 'normal',
-    },
-    bold: {
-      fontFamily: 'Montserrat-Bold',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'Montserrat-Light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'Montserrat-Thin',
-      fontWeight: 'normal',
-    },
-  },
 };
 
 const darkTheme = {
