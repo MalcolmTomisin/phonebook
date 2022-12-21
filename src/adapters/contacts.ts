@@ -1,6 +1,9 @@
 import Contacts, {type Contact} from 'react-native-contacts';
 import {Platform} from 'react-native';
 
+const isAndroidAndLessThan26 =
+  Platform.OS === 'android' && Platform.Version < 26;
+
 const fetchOrderedContacts: () => Promise<
   Array<Contact & {favorite: boolean}>
 > = async () => {
@@ -8,8 +11,7 @@ const fetchOrderedContacts: () => Promise<
     const _contacts = await Contacts.getAll();
     const _orderderedContacts = Array.from(
       _contacts.sort((a, b) => {
-        //console.log('contacts   ===>', a, b);
-        return Platform.OS === 'android' && Platform.Version < 26
+        return isAndroidAndLessThan26
           ? a.givenName.localeCompare(b.givenName, 'en', {
               sensitivity: 'base',
             })

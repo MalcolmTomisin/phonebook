@@ -1,28 +1,12 @@
 import React from 'react';
 import {globalStyles} from 'globalstyles';
 import {List} from 'screens';
-import {ContactAdapter} from 'adapters';
-import {Contact} from 'react-native-contacts';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
+import {type RootState} from 'store';
 
 export default function ListContainer() {
-  const [contacts, setContacts] = React.useState<
-    Array<Contact & {favorite: boolean}>
-  >([]);
-
-  const _getContacts = () => {
-    ContactAdapter.fetchOrderedContacts()
-      .then(values => {
-        setContacts(Array.from(values));
-      })
-      .catch(e => {
-        console.log('error', e);
-      });
-  };
-
-  React.useEffect(() => {
-    _getContacts();
-  }, []);
+  const contacts = useSelector((state: RootState) => state.contacts);
 
   return (
     <SafeAreaView edges={['top', 'bottom']} style={globalStyles.containers}>

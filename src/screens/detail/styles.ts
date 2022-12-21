@@ -32,6 +32,7 @@ export default (darkTheme?: boolean) =>
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      marginVertical: scale(12),
     },
     icon_spacing: {flex: 0.5, marginHorizontal: 8},
     image: {
