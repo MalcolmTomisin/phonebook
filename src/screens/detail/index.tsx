@@ -19,24 +19,38 @@ export default function Detail(
   return (
     <View style={globalStyles.flex_1}>
       <View style={styles.thumb_container}>
-        {props?.hasThumbnail ? (
-          <FastImage
-            style={styles.image}
-            resizeMode={FastImage.resizeMode.contain}
-            source={{uri: props?.thumbnailPath}}
-          />
-        ) : (
-          <View>
-            <Avatar.Text
-              label={`${props?.givenName?.charAt(0)}${
-                props?.familyName ? props?.familyName?.charAt(0) : ''
-              }`}
-            />
-            <Badge visible={props.favorite} style={{position: 'absolute'}}>
-              <Icon name="heart" color={colors.white} />
-            </Badge>
-          </View>
-        )}
+        <View>
+          {props?.hasThumbnail ? (
+            <>
+              <FastImage
+                style={styles.image}
+                resizeMode={FastImage.resizeMode.contain}
+                source={{uri: props?.thumbnailPath}}
+                testID="avatar"
+              />
+              <Badge
+                testID="badge"
+                visible={props.favorite}
+                style={{position: 'absolute'}}>
+                <Icon testID="badge-icon" name="heart" color={colors.white} />
+              </Badge>
+            </>
+          ) : (
+            <>
+              <Avatar.Text
+                label={`${props?.givenName?.charAt(0)}${
+                  props?.familyName ? props?.familyName?.charAt(0) : ''
+                }`}
+              />
+              <Badge
+                testID="badge"
+                visible={props.favorite}
+                style={{position: 'absolute'}}>
+                <Icon testID="badge-icon" name="heart" color={colors.white} />
+              </Badge>
+            </>
+          )}
+        </View>
       </View>
       <Text style={styles.title_text}>{`${props?.givenName} ${
         props?.familyName ? props?.familyName : ''
@@ -69,6 +83,7 @@ export default function Detail(
           size={30}
           color={colors.blueprimary}
           label="favorite"
+          testID="icon-favorite"
           onPress={() => {
             dispatch(toggleFavorite(props.currentIndex));
           }}

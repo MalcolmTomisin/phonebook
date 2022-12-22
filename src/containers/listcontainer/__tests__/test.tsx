@@ -1,5 +1,5 @@
 import React from 'react';
-import ListContainer from '..';
+import ListContainer from '../';
 import {fireEvent, render} from '@testing-library/react-native';
 import {hydrateContacts} from 'store/features';
 import {Provider} from 'react-redux';
@@ -22,7 +22,7 @@ jest.mock('@react-navigation/native', () => {
 const mockedNavigate = jest.fn();
 
 describe('list contacts to screen', () => {
-  let mockContacts = {
+  const mockContacts = {
     recordID: (Date.now() / Math.random()).toString(),
     backTitle: '',
     company: '',

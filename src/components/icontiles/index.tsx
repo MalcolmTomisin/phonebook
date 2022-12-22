@@ -17,6 +17,7 @@ const IconTiles = ({
   color,
   labelStyle,
   onPress,
+  testID,
 }: React.ComponentProps<typeof Icon> & {
   containerStyle?: StyleProp<ViewStyle>;
   label?: string;
@@ -25,7 +26,13 @@ const IconTiles = ({
   const styles = useStyle(useColorScheme() === 'dark');
   return (
     <View style={[styles.tile, containerStyle]}>
-      <Icon name={name} size={30} color={color} onPress={onPress} />
+      <Icon
+        testID={testID}
+        name={name}
+        size={30}
+        color={color}
+        onPress={onPress}
+      />
       <Text style={[styles.label, labelStyle]}>{label}</Text>
     </View>
   );
