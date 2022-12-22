@@ -32,6 +32,7 @@ const ContactItem = ({
         navigation.navigate(navigationRoutes.detail);
       }}
       style={styles.itemContainer}
+      testID="listItem"
       key={item.recordID}>
       {item.hasThumbnail ? (
         <FastImage style={styles.avatar} source={{uri: item.thumbnailPath}} />
