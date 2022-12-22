@@ -23,6 +23,9 @@ export default (darkTheme?: boolean) =>
     },
     avatar: {
       marginRight: scale(8),
+      width: scale(60),
+      height: scale(60),
+      borderRadius: scale(60 * 0.9),
     },
     absolute: {position: 'absolute'},
   });
