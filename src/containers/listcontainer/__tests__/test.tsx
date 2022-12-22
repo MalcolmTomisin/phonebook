@@ -1,5 +1,5 @@
 import React from 'react';
-import ListContainer from '.';
+import ListContainer from '..';
 import {fireEvent, render} from '@testing-library/react-native';
 import {hydrateContacts} from 'store/features';
 import {Provider} from 'react-redux';
