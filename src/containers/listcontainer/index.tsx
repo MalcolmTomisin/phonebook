@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import {type RootState} from 'store';
 
 export default function ListContainer() {
-  const contacts = useSelector((state: RootState) => state.contacts);
+  const {contacts} = useSelector((state: RootState) => state.contacts);
 
   return (
     <SafeAreaView edges={['top', 'bottom']} style={globalStyles.containers}>

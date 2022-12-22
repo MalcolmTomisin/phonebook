@@ -1,5 +1,7 @@
 export {
   default as contactsReducer,
   hydrateContacts,
-  addToFavorite,
+  toggleFavorite,
+  hydrateCurrentContact,
+  setCurrentIndex,
 } from './contacts';

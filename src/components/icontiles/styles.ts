@@ -13,7 +13,7 @@ export default (darkTheme?: boolean) =>
     },
     label: {
       fontSize: scale(12),
-      fontFamily: fonts.MEDIUM,
+      //fontFamily: fonts.MEDIUM,
       color: colors.blueprimary,
     },
   });

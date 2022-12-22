@@ -1,15 +1,21 @@
 import React from 'react';
 import {View, Text, useColorScheme} from 'react-native';
-import {Avatar} from 'react-native-paper';
+import {Avatar, Badge} from 'react-native-paper';
 import FastImage from 'react-native-fast-image';
 import {type Contact} from 'react-native-contacts';
 import {IconTiles} from 'components';
 import {colors} from 'config';
 import useStyles from './styles';
 import {globalStyles} from 'globalstyles';
+import {toggleFavorite} from 'store/features';
+import {useDispatch} from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Detail(props: Contact & {favorite: boolean}) {
+export default function Detail(
+  props: Contact & {favorite: boolean; currentIndex: number},
+) {
   const styles = useStyles(useColorScheme() === 'dark');
+  const dispatch = useDispatch();
   return (
     <View style={globalStyles.flex_1}>
       <View style={styles.thumb_container}>
@@ -20,11 +26,16 @@ export default function Detail(props: Contact & {favorite: boolean}) {
             source={{uri: props?.thumbnailPath}}
           />
         ) : (
-          <Avatar.Text
-            label={`${props?.givenName?.charAt(0)}${
-              props?.familyName ? props?.familyName?.charAt(0) : ''
-            }`}
-          />
+          <View>
+            <Avatar.Text
+              label={`${props?.givenName?.charAt(0)}${
+                props?.familyName ? props?.familyName?.charAt(0) : ''
+              }`}
+            />
+            <Badge visible={props.favorite} style={{position: 'absolute'}}>
+              <Icon name="heart" color={colors.white} />
+            </Badge>
+          </View>
         )}
       </View>
       <Text style={styles.title_text}>{`${props?.givenName} ${
@@ -58,6 +69,9 @@ export default function Detail(props: Contact & {favorite: boolean}) {
           size={30}
           color={colors.blueprimary}
           label="favorite"
+          onPress={() => {
+            dispatch(toggleFavorite(props.currentIndex));
+          }}
         />
       </View>
       {props.emailAddresses.map((v, i) => (

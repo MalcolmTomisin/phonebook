@@ -1,7 +1,7 @@
 const fonts = {
-  REGULAR: 'SFPRODISPLAYREGULAR',
-  MEDIUM: 'SFPRODISPLAYMEDIUM',
-  BOLD: 'SFPRODISPLAYBOLD',
+  REGULAR: 'SFProDisplay-Regular',
+  MEDIUM: 'SFProDisplay-Medium',
+  BOLD: 'SFProDisplay-Bold',
 };
 
 export default fonts;

@@ -12,16 +12,17 @@ export default (darkTheme?: boolean) =>
     },
     givenName: {
       fontSize: scale(14),
-      fontFamily: fonts.MEDIUM,
+      //fontFamily: fonts.MEDIUM,
       color: darkTheme ? colors.lightgrey : colors.grey,
     },
     familyName: {
       fontSize: scale(14),
-      fontFamily: fonts.BOLD,
+      //fontFamily: fonts.BOLD,
       color: darkTheme ? colors.white : colors.black,
       fontWeight: '700',
     },
     avatar: {
       marginRight: scale(8),
     },
+    absolute: {position: 'absolute'},
   });

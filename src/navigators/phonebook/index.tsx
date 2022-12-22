@@ -7,10 +7,7 @@ import {navigationRoutes} from 'config';
 const Stack = createNativeStackNavigator<PhoneBookParams>();
 
 const PhoneBookNavigator = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <Stack.Navigator>
     <Stack.Screen name={navigationRoutes.list} component={List} />
     <Stack.Screen name={navigationRoutes.detail} component={Detail} />
   </Stack.Navigator>
